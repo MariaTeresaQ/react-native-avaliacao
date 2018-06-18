@@ -1,37 +1,37 @@
 import React from 'react';
-import {View} from 'react-native';
-import styles, {version} from './styles/styles';
-import dictionary from './strings/strings';
-import MyTextArea from './componentsLiftState/MyTextArea'
-import RandomizeButton from './componentsLiftState/RamdomizeButton';
+import {ScrollView, Text} from 'react-native';
+import styles from './styles/styles';
+import UserNameForm from './Todo/UserName';
+import taskList from './Todo/List';
+import TaskForm from './Todo/Form';
 
 
 export default class App extends React.Component {
   constructor(props){
     super(props)
     this.state={
-      text:"",
-    }
-    this.handleRandomization = this.handleRandomization.bind(this)
-    this.handleButtonRandomClick = this.handleButtonRandomClick.bind(this)
+      list:[{
+        task: "cenas",
+        date: new Date(),
+      }],
+      }
+    this.handleNameChange = this.handleNameChange.bind(this)
   }
 
-  handleRandomization(){
-    console.log("handleRandomization")
+  handleNameChange(valor){
+    let name = valor
+    this.setState({
+      name
+    })
   }
-
-  handleButtonRandomClick(){
-    console.log("handleButtonRandomClick")
-  }
-
+  
   render() {
     return (
-      <View style={styles.masterContainer}>
-        <MyTextArea text="cenas"/>
-        <RandomizeButton onMyPress={this.handleRandomization}/>
-        <RandomizeButton onMyPress={this.handleButtonRandomClick}/>
-        <RandomizeButton/>
-      </View>
+      <ScrollView>
+        <UserNameForm/>
+        <TaskForm/>
+        <taskList/>
+      </ScrollView>
     );
   }
 }
