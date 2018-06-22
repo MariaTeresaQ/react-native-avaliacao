@@ -1,22 +1,48 @@
 import React from 'react';
-import {ScrollView, Text} from 'react-native';
+import {ScrollView, Text, Button} from 'react-native';
 import styles from './styles/styles';
 import UserNameForm from './Todo/UserName';
-import taskList from './Todo/List';
+import TaskList from './Todo/List';
 import TaskForm from './Todo/Form';
+/*import TaskItem from './Todo/task';*/
+
 
 
 export default class App extends React.Component {
   constructor(props){
     super(props)
     this.state={
-      list:[{
-        task: "cenas",
-        date: new Date(),
-      }],
+      list:[
+        {
+          key: "o",
+          task: "cenas",
+          date: []
+        },
+        {
+          key: "oo",
+          task: "ola", 
+          date:[]
+        },
+        {
+          key: "ooo",
+          task: "olaaa", 
+          date:[]
+        }
+      ],
       }
     this.handleNameChange = this.handleNameChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
+
+
+  handleSubmit(data){
+    /*console.log(data)*/
+    let list = this.state.list.slice()
+    list.push(data)
+    this.setState({
+      list
+    })
+    }
 
   handleNameChange(valor){
     let name = valor
@@ -29,8 +55,9 @@ export default class App extends React.Component {
     return (
       <ScrollView>
         <UserNameForm/>
-        <TaskForm/>
-        <taskList/>
+        <TaskForm onSubmit={this.handleSubmit}/>
+        <TaskList list={this.state.list} log={console.log(this.state.list)}/>
+        <Button title="cenas" onPress={() => console.log(this.state.list)}></Button>
       </ScrollView>
     );
   }

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>First Page</title>
+	</head>
+	<body>
+		<!-- Elementos Base HTML-->
+		<h1>Our First Page</h1>
+		<h2>Título de h2</h2>
+		<h3>Título de h3</h3>
+		<h4>Título de h4</h4>
+		<h5>Título de h5</h5>
+		<h6>Título de h6</h6>
+
+		<p>
+			Texto de um parágrafo<br/>Com uma quebra de linha
+		</p>
+
+		<a href="http://www.google.pt" target="_top" id="ancora_google">Ir para o Google</a>
+		</br>
+		<img src="http://frederica.sapo.pt/wp-content/uploads/2015/11/019.jpg" alt="logótipo world academy" width="200" height="55" />
+
+		<div>
+			<a href="http://www.google.pt" target="_top" id="ancora_google">Ir para o Google</a>	
+		</div>
+
+		<!-- Entidades -->
+		<hr/>
+		<h2>Entidades</h2>
+		<hr/>
+		<p>
+			World Academy &trade; &reg; c&atilde;o cão
+			&lt;p&gt;&lt;/p&gt;
+		</p>
+		
+		<!-- Outras tags: Listas, Tabelas, Formulários -->
+		<hr/>
+		<h2>Outras tags</h2>
+		<hr/>
+
+		<h3>Listas</h3>
+		<ul>
+			<li>Queijo</li>
+			<li>Pão</li>
+			<li>Fiambre</li>
+		</ul>
+
+		<ol>
+			<li>Queijo</li>
+			<li>Pão</li>
+			<li>Fiambre</li>
+		</ol>
+
+		<h3>Tables</h3>
+		<table border="1" cellspacing="10" cellpading="10">
+			<thead>
+				<tr>
+					<th>Categoria</th>
+					<th>Produto</th>
+					<th>Descrição</th>
+					<th>Quantidade</th>
+					<th>Valor/Unidade</th>
+					<th>Valor Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td rowspan="2">Queijos</td>
+					<td>Queijo da Serra</td>
+					<td>Queijo da serra amanteigado</td>
+					<td>2</td>
+					<td>10€</td>
+					<td>20€</td>
+				</tr>
+				<tr>
+					<td>Queijo de Cabra</td>
+					<td>Queijo da serra amanteigado</td>
+					<td>2</td>
+					<td>10€</td>
+					<td>20€</td>
+				</tr>
+				<tr>
+					<td>Utensílios domésticos</td>
+					<td colspan="2">Tábua de engomar e qualquer coisa</td>
+					<td>1</td>
+					<td>15€</td>
+					<td>15€</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="5">Total</td>
+					<td>55€</td>
+				</tr>
+			</tfoot>
+		</table>
+
+		<h3>Forms</h3>
+		<form action="mailto:info@worldacademy.com" method="GET">
+			<label for="input_subject">Subject</label>
+			<input type="text" name="subject" id="input_subject" placeholder="Default text" disabled="disabled"/>
+			<br/>
+			<input type="text" name="mail" id="input_subject2" placeholder="Default text" autocomplete="autocomplete"/>
+			<br/><br/>
+
+			<label>
+				<input type="checkbox" name="aceito_rgpd" value="1" checked="checked"/> Aceito termos e condições
+			</label>
+			<br/><br/>
+
+			<label>
+				<input type="radio" name="assunto" value="Comprar bolachas" checked="checked"/> Comprar bolachas
+			</label>
+				<br/>
+			<label>
+				<input type="radio" name="assunto" value="Comprar amendoins"/> Comprar amendoins
+			</label>
+				<br/>
+			<label>
+				<input type="radio" name="assunto" value="Comprar morangos"/> Comprar morangos
+			</label>
+			<br/><br/>
+
+			<input type="hidden" name="contexto" value="coisas do contexto"/>
+
+			<label>
+				<input type="file" name="ficheiro_user"/> Seleccione os seu ficheiro
+			</label>
+			<br/><br/>
+
+			<label>
+				Password: <input type="password" name="user_pwd" autocomplete:"autocomplete" placeholder:"password" maxlenght:"12" minlenght:"6" required:"required"/>
+			</label>
+			<br/><br/>
+			<input type="submit" value="Submeter dados"/>
+			<textarea name="body"></textarea>
+			<select name="assuntos">
+				<option value="1">Um</option>
+				<option value="2">Dois</option>
+				<option value="3">Três</option>
+				<option value="4">Quatro</option>
+				<option value="5">Cinco</option>
+				<option value="6">Seis</option>
+				<option value="7">Sete</option>
+			</select>
+		</form>
+	</body>
+</html>

@@ -13,6 +13,10 @@ class UserName extends Component {
         this.submitEsse = this.submitEsse.bind(this);
     }
 
+    componentWillReceiveProps(newProps){
+        this.setState({data: newProps.data})
+    }
+
     handleNameChange(valor){
         let name = valor
         this.setState({
@@ -22,8 +26,7 @@ class UserName extends Component {
       submitEsse(){
         let nameFinal = this.state.name + this.state.esse;
         this.setState({
-            nameFinal:nameFinal,
-            estadonome: true,
+            nameFinal: nameFinal,
         })
     }
 

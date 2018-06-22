@@ -8,41 +8,46 @@ class Form extends Component {
     constructor(props){
         super(props)
         this.state={
-            data:[{
+            data:{
                 task: "",
                 date: "",
-          }],
-            /*add: "false"*/
+            },
+            add: "true"
         }
         this.handleTaskChange = this.handleTaskChange.bind(this)
         this.submitTask = this.submitTask.bind(this)
     }
 
-    handleTaskChange(valor){
-        /*let task = Object.assign({}, this.state.task)*/
-        task = valor;
+    /*handleTaskChange(valor){
+        let task = valor;
         this.setState({task})
+    }*/
+
+    handleTaskChange(dat, valor){
+        let data = Object.assign({}, this.state.data)
+        data[dat] = valor
+        this.setState({data})
     }
 
     submitTask(){
         let data = Object.assign({}, this.state.data)
+        data.date = new Date (data.date)
         this.setState({
             data: {
                 task: "",
                 date: ""
-            },
-            /*add: false*/
+            }
         })
         !this.props.onSubmit || this.props.onSubmit(data)
     }
 
     render(){
         return (
-            <View>
+             <View>
                 <View>
                     <Text>Task</Text>
                     <TextInput placeholder="What do you have to do?"
-                    value={this.state.data.task}
+                    /*onChangeText={(valor) => this.handleTaskChange(valor)}*/
                     onChangeText={this.handleTaskChange}/>
                 </View>
                 <View>
@@ -69,7 +74,8 @@ class Form extends Component {
                     }
                     // ... You can check the source to find the other keys.
                     }}
-                    onDateChange={(date) => {this.setState({date: date})}}
+                    /*onDateChange={(date) => {this.setState({date: date})}}*/
+                    onDateChange={this.handleTaskChange}
                     />
                 </View>
                 <View>
